@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>民间习俗总括</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    	#main{
+    		width:1000px;
+    		margin:auto;
+    	}
+      .small{
+				width:500px;
+      	height:400px;
+      	border:2px solid #DEE1E6;
+      	background:url("res/small.jpg") no-repeat center/cover;
+      	overflow:hidden;
+      }
+      .move{
+      	width:100px;
+      	height:80px;
+				background-color:#000000;
+      	opacity:0.5;
+      	position:relative;
+      	left:0px;
+      	top:0px;
+      }
+      .big{
+				width:500px;
+      	height:400px;
+      	border:2px solid #DEE1E6;
+      	background:url("res/big.jpg") no-repeat;
+      	position:absolute;
+      	display:none;
+      }
+       p{
+      	text-align: center;
+      	margin-top:50px;
+      }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+    	  $(".small").mousemove(function(e){
+    		  var x = e.pageX;
+    		  var y = e.pageY;
+    		  
+    		  var smallLeft = $(".small").offset().left;
+    		  var smallTop = $(".small").offset().top;
+    		  
+    		  var smallWidth = $(".small").width();
+    		  var smallHeight = $(".small").height();
+    		  
+    		  var moveWidth = $(".move").width();
+    		  var moveHeight = $(".move").height();
+    		  
+    		  var moveLeft = x - smallLeft - moveWidth / 2;
+    		  var moveTop = y - smallTop - moveHeight / 2;
+    		  
+    		  var bigLeft = smallWidth + smallLeft + 10;
+    		  var bigTop = smallTop;
+    		  
+    		  var bigPosX = -(moveLeft-moveWidth/2)*2.56;
+    		  var bigPosY = -(moveTop-moveHeight/2)*2.56;
+    		  
+    		  $(".move").css({
+    			  "left":moveLeft+"px",
+    			  "top":moveTop+"px"
+    		  });
+    		  
+    		  $(".big").css({
+    			  "left":bigLeft+"px",
+    			  "top":bigTop+"px",
+    			  "background-position":bigPosX+"px "+bigPosY+"px",
+    			  "display":"block"
+    		  });
+    		  
+    	  });
+    	  
+    	  $(".small").mouseout(function(){
+    		  $(".big").css("display","none");
+    	  });
+      })
+    </script>
+  </head>
+  <body>
+   <div id="main">
+    <div class="small">
+      <div class="move"></div>
+    </div>
+    <div class="big"></div>
+    </div> 
+     <p><a href="index.html">返回首页</a></p>
+  </body>
+</html>
+

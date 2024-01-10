@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>清明活动</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+      .box{
+		width:600px;
+      	height:350px;
+      	background-color:#000000;
+      	border-radius:10px;
+      }
+      .box img{
+		width:600px;
+      	height:350px;
+      	border-radius:10px;
+      }      
+	 p{
+	  	text-align: center;
+	  	margin-top:50px;
+      }
+      #main{
+      	width:600px;
+      	margin:auto;
+      }    
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+    	  $("input").each(function(i){
+    		  $(this).click(function(){
+    			  $("#showImage").fadeOut(500,function(){
+    				  $("#showImage").attr("src","res/0"+i+".jpg");
+    				  $("#showImage").fadeIn(500);
+    			  });
+    		  });
+    	  });
+      })
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <p>
+	    <input type="button" value="扫墓" />
+	    <input type="button" value="踏青" />
+	    <input type="button" value="蹴鞠" />
+	    <input type="button" value="植树" />
+    </p>
+    <div class="box">
+      <img id="showImage" src="res/00.jpg" />
+    </div>
+     <p><a href="index.html">返回首页</a></p>
+   </div>
+  </body>
+</html>
+

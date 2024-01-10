@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery操纵标签属性</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    	#main{
+    		width:800px;
+    		margin:auto;
+    	}
+      #div1{
+        background-color:#5BB1DD;
+        width:800px;
+        height:500px;
+        overflow:hidden;
+      }
+      .active{
+				border-radius:50%;
+      	box-shadow:5px 5px 5px 5px rgba(0,0,0,0.5);/*水平阴影的位置 垂直阴影的位置 模糊距离 阴影大小 阴影的颜色*/
+      }
+      p{
+      	text-align: center;
+      	margin-top:50px;
+      }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+      
+      var imagePath = "res/132.jpg";
+      var content = "<b>图片没有了？<br/><br/>再点一次试试看...</b>";
+      
+      function hello1(){
+          var str = $("#myImg").attr("src");
+          $("#myImg").attr("src",imagePath);
+          imagePath = str;
+      }
+      function hello2(){
+          var width = $("#myImg").attr("width");
+          $("#myImg").attr("width",parseFloat(width)+10);
+      }
+      function hello3(){
+    	  var width = $("#myImg").attr("width");
+    	  $("#myImg").attr("width",width-10);
+      }
+      function hello4(){
+          $("#myImg").addClass("active");
+      }
+      function hello5(){
+    	  $("#myImg").removeClass("active");
+      }
+      function hello6(){
+          var str = $("#div1").html();
+          $("#div1").html(content);
+          content = str;
+      }
+    </script>
+  </head>
+  <body>
+   <div id="main">
+   	<p>
+    <input type="button" value="更换图片" onclick="hello1()" />
+    <input type="button" value="图片放大" onclick="hello2()" />
+    <input type="button" value="图片缩小" onclick="hello3()" />
+    <input type="button" value="添加样式" onclick="hello4()" />
+    <input type="button" value="移除样式" onclick="hello5()" />
+    <input type="button" value="更改div内容" onclick="hello6()" />
+    </p>    
+    <div id="div1"><img id="myImg" src="res/131.jpg" width="700" /></div>
+    </div>
+     <p><a href="index.html">返回首页</a></p>
+  </body>
+</html>
+
